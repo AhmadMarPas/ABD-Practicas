@@ -165,3 +165,60 @@ end;
             CLOSE vPistasLibres;
             RETURN -1; -- Para indica el error
 */
+--Paso 2. 1º bloque anónimo
+SET SERVEROUTPUT ON
+declare
+ resultado integer;
+begin
+    
+     resultado := reservarPista( 'Socio 1', CURRENT_DATE, 12 );
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1: OK');
+     else
+        dbms_output.put_line('Reserva 1: MAL');
+     end if;
+  
+     resultado := reservarPista( 'Socio 2', CURRENT_DATE, 12 );
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1: OK');
+     else
+        dbms_output.put_line('Reserva 1: MAL');
+     end if;
+
+     resultado := reservarPista( 'Socio 3', CURRENT_DATE, 12 );
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1: OK');
+     else
+        dbms_output.put_line('Reserva 1: MAL');
+     end if;
+
+     resultado := reservarPista( 'Socio 4', CURRENT_DATE, 12 );
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1: OK');
+     else
+        dbms_output.put_line('Reserva 1: MAL');
+     end if;
+end;
+/
+
+--Paso 2. 2º bloque anónimo
+SET SERVEROUTPUT ON
+declare
+ resultado integer;
+begin
+     
+	 resultado := anularreserva( 'Socio 1', CURRENT_DATE, 12, 1);
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1 anulada: OK');
+     else
+        dbms_output.put_line('Reserva 1 anulada: MAL');
+     end if;
+     
+     resultado := anularreserva( 'Socio 1', date '1920-1-1', 12, 1);
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1 anulada: OK');
+     else
+        dbms_output.put_line('Reserva 1 anulada: MAL');
+     end if;
+end;
+/
