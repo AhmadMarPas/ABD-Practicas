@@ -270,3 +270,12 @@ begin
         dbms_output.put_line('Reserva 1 anulada: MAL');
      end if;
 end;
+
+--1ª forma de ejecutar el procedimiento (como un bloque anónimo)
+begin
+    TEST_FUNCIONES_TENIS;
+end;
+/
+
+--2ª forma de ejecutar el procedimiento
+exec TEST_FUNCIONES_TENIS;
