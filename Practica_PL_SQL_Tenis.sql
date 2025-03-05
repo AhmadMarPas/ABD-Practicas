@@ -154,3 +154,14 @@ end;
 4.R.- No, no da lo mismo. Inicialmente se lanza una sentencia de borrado, si como consecuencia de ello se borra un registro, se comita y sale, pero si se han borrado más de un registro (o ninguno) entonces hace rollback,
 	es decir, deshace el cambio porque está pensado para borrar un único registro.
 */
+/*
+5.P.- En la función reservarPista investiga si la transacción se puede quedar abierta en algún caso. Haz el arreglo correspondiente para que esto no ocurra.
+5.R.- Se puede quedar abierta si se produce un error no controlado, como por ejemplo en el insert (clave duplicada, tamaño del campo superior al admitido o cualquier otro error de BBDD),
+	lo que provocaría que la transacción quedara abierta.
+	Una buena solución podría ser controlar cualquier excepción:
+	EXCEPTION
+    	WHEN OTHERS THEN
+            ROLLBACK;
+            CLOSE vPistasLibres;
+            RETURN -1; -- Para indica el error
+*/
