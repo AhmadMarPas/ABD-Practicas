@@ -133,3 +133,8 @@ end;
 	De este modo, al comparar fechas haciendo uso de la función trunc, únicamente compara los días sin tener en cuenta las horas.
 	Esto podría provocar que varios registros coincideran con el valor de día de la parte izquierda, recuperando más registros (por exisitir varios registros con el mismo día pero con distintas horas).
 */
+/*
+2.P.- ¿Qué es sql%rowcount y cómo funciona?
+2.R.- Es un atributo de cursor que Oracle gestiona automáticamente. Mantiene el recuento del número de filas que han sido procesadas por la última sentencia SQL (INSERT, UPDATE, DELETE o SELECT).
+	Después de ejecutar una sentencia SQL (por ejemplo, un UPDATE que modifica varias filas), Oracle actualiza el valor de SQL%ROWCOUNT para almacenar el número de filas que se han visto afectadas.
+*/
