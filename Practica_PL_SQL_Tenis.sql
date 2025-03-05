@@ -149,3 +149,8 @@ end;
 3.4.R.- FOUND devuelve TRUE si la última operación FETCH recuperó al menos una fila y FALSE si no recuperó ninguna. Devuelve NULL si no se ha realizado ninguna operación FETCH o si el cursor no está abierto.
 	NOTFOUND devuelve TRUE si la última operación FETCH no recuperó ninguna fila y False si recupera al menos una. Devuelve NULL si el cursor no devuelve filas cuando se abre (open).
 */
+/*
+4.P.- En la función anularReserva discute si da lo mismo sustituir el rollback por un commit y por qué
+4.R.- No, no da lo mismo. Inicialmente se lanza una sentencia de borrado, si como consecuencia de ello se borra un registro, se comita y sale, pero si se han borrado más de un registro (o ninguno) entonces hace rollback,
+	es decir, deshace el cambio porque está pensado para borrar un único registro.
+*/
