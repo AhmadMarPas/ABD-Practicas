@@ -138,3 +138,14 @@ end;
 2.R.- Es un atributo de cursor que Oracle gestiona automáticamente. Mantiene el recuento del número de filas que han sido procesadas por la última sentencia SQL (INSERT, UPDATE, DELETE o SELECT).
 	Después de ejecutar una sentencia SQL (por ejemplo, un UPDATE que modifica varias filas), Oracle actualiza el valor de SQL%ROWCOUNT para almacenar el número de filas que se han visto afectadas.
 */
+/*
+3.1.P.- ¿Qué es una variable de tipo cursor?
+3.1.R.- Es una variable especial que se utiliza para almacenar una referencia a un cursor.
+3.2.P.- ¿Qué variable de tipo cursor hay en la segunda función?
+3.2.R.- La variable de tipo cursor es vPistasLibres
+3.3.P.- ¿Qué efecto tienen las operaciones open, fetch y close?
+3.3.R.- La operación open ejecuta la consulta asociada al cursor, fetch obtiene los datos del cursor, y close libera o cierra el conjunto de filas del cursor.
+3.4.P.- ¿Qué valores toman las propiedades de cursor FOUND y NOTFOUND y en qué caso?
+3.4.R.- FOUND devuelve TRUE si la última operación FETCH recuperó al menos una fila y FALSE si no recuperó ninguna. Devuelve NULL si no se ha realizado ninguna operación FETCH o si el cursor no está abierto.
+	NOTFOUND devuelve TRUE si la última operación FETCH no recuperó ninguna fila y False si recupera al menos una. Devuelve NULL si el cursor no devuelve filas cuando se abre (open).
+*/
