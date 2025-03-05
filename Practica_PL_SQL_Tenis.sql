@@ -222,3 +222,51 @@ begin
      end if;
 end;
 /
+
+-- Paso 4. Creación del procedimiento.
+create or replace procedure TEST_FUNCIONES_TENIS is
+    resultado integer;
+begin
+    -- Reserva
+     resultado := reservarPista( 'Socio 1', CURRENT_DATE, 12 );
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1: OK');
+     else
+        dbms_output.put_line('Reserva 1: MAL');
+     end if;
+  
+     resultado := reservarPista( 'Socio 2', CURRENT_DATE, 12 );
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1: OK');
+     else
+        dbms_output.put_line('Reserva 1: MAL');
+     end if;
+
+     resultado := reservarPista( 'Socio 3', CURRENT_DATE, 12 );
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1: OK');
+     else
+        dbms_output.put_line('Reserva 1: MAL');
+     end if;
+
+     resultado := reservarPista( 'Socio 4', CURRENT_DATE, 12 );
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1: OK');
+     else
+        dbms_output.put_line('Reserva 1: MAL');
+     end if;
+    -- Anulación
+	 resultado := anularreserva( 'Socio 1', CURRENT_DATE, 12, 1);
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1 anulada: OK');
+     else
+        dbms_output.put_line('Reserva 1 anulada: MAL');
+     end if;
+     
+     resultado := anularreserva( 'Socio 1', date '1920-1-1', 12, 1);
+     if resultado=1 then
+        dbms_output.put_line('Reserva 1 anulada: OK');
+     else
+        dbms_output.put_line('Reserva 1 anulada: MAL');
+     end if;
+end;
