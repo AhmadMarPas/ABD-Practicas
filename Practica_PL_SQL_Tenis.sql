@@ -126,3 +126,10 @@ end;
 /
 */
 
+-- Paso 1: Leer el código fuente de ambas funciones investigando las siguientes cuestiones:
+/*
+1.P.- ¿Por qué en las comparaciones de fecha en Oracle conviene utilizar la función trunc?
+1.R.- Al utilizar la función trunc sobre un tipo de dato Date lo que provoca es quedarse únicamente con el valor de la fecha (día, mes y año), descartando de esta forma los valores de horas, minutos y segundos.
+	De este modo, al comparar fechas haciendo uso de la función trunc, únicamente compara los días sin tener en cuenta las horas.
+	Esto podría provocar que varios registros coincideran con el valor de día de la parte izquierda, recuperando más registros (por exisitir varios registros con el mismo día pero con distintas horas).
+*/
